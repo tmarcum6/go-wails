@@ -4,6 +4,7 @@ import './App.css';
 import { AddUser, DeleteUser, UpdateUser, GetUsers } from '../wailsjs/go/main/App';
 import './style.css'
 import Menu from './Menu'
+import DataGrid from './DataGrid'
 
 function App() {
     const [resultText] = useState("Please enter your name below:");
@@ -39,8 +40,10 @@ function App() {
             </div>
             <h1>Menu</h1>
             <div>
-                <Menu>
-                </Menu>
+                <Menu></Menu>
+            </div>
+            <div>
+                <DataGrid></DataGrid>
             </div>
         </div>
     )
