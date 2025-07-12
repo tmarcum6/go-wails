@@ -33,9 +33,9 @@ func (a *App) DeleteUser(name string) {
 
 func (a *App) GetUsers() []User {
 	db, _ := connect()
-	getUsers(db)
+	users := getUsers(db)
 	defer db.Close()
-	return []User{}
+	return users
 }
 
 func (a *App) UpdateUser(name string) {

@@ -12,7 +12,7 @@ type User struct {
 	Name string
 }
 
-func getUsers(db *sql.DB) {
+func getUsers(db *sql.DB) []User {
 	rows, err := db.Query("SELECT * FROM users")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to execute query: %v\n", err)
@@ -27,7 +27,6 @@ func getUsers(db *sql.DB) {
 
 		if err := rows.Scan(&user.ID, &user.Name); err != nil {
 			fmt.Println("Error scanning row:", err)
-			return
 		}
 
 		users = append(users, user)
@@ -37,6 +36,8 @@ func getUsers(db *sql.DB) {
 	if err := rows.Err(); err != nil {
 		fmt.Println("Error during rows iteration:", err)
 	}
+
+	return users
 }
 
 func add(db *sql.DB, user User) {

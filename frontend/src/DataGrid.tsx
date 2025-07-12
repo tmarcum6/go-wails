@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { AddUser, DeleteUser, UpdateUser, GetUsers } from '../wailsjs/go/main/App';
-
-interface Data {
-    id: number;
-    name: string;
-}
+import React, { useState, useEffect } from 'react';
+import { GetUsers } from '../wailsjs/go/main/App';
+import { main } from '../wailsjs/go/models';
 
 const DataGrid: React.FC = () => {
-    const [data, setData] = useState<Data[]>([]);
+    const [data, setData] = useState<main.User[]>([]);
+
+    useEffect(() => {
+        GetUsers().then(setData).catch(console.error);
+    }, []);
 
     return (
         <table>
@@ -19,14 +19,16 @@ const DataGrid: React.FC = () => {
             </thead>
             <tbody>
                 {data.map(row => (
-                    <tr key={row.id}>
-                        <td>{row.id}</td>
-                        <td>{row.name}</td>
+                    <tr key={row.ID}>
+                        <td>{row.ID}</td>
+                        <td>{row.Name}</td>
                     </tr>
                 ))}
             </tbody>
         </table>
+
     );
+
 };
 
 export default DataGrid;
