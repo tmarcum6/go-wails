@@ -4,7 +4,7 @@ import {main} from '../models';
 
 export function AddUser(arg1:string):Promise<void>;
 
-export function DeleteUser(arg1:string):Promise<void>;
+export function DeleteUser(arg1:number,arg2:string):Promise<void>;
 
 export function GetUsers():Promise<Array<main.User>>;
 

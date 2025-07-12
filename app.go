@@ -25,9 +25,9 @@ func (a *App) AddUser(name string) {
 	defer db.Close()
 }
 
-func (a *App) DeleteUser(name string) {
+func (a *App) DeleteUser(id int, name string) {
 	db, _ := connect()
-	delete(db, User{Name: name})
+	delete(db, User{ID: id, Name: name})
 	defer db.Close()
 }
 

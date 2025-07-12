@@ -6,8 +6,8 @@ export function AddUser(arg1) {
   return window['go']['main']['App']['AddUser'](arg1);
 }
 
-export function DeleteUser(arg1) {
-  return window['go']['main']['App']['DeleteUser'](arg1);
+export function DeleteUser(arg1, arg2) {
+  return window['go']['main']['App']['DeleteUser'](arg1, arg2);
 }
 
 export function GetUsers() {

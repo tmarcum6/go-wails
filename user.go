@@ -48,7 +48,8 @@ func add(db *sql.DB, user User) {
 
 func delete(db *sql.DB, user User) {
 	name := user.Name
-	db.Exec("DELETE FROM users WHERE name = ?", name)
+	id := user.ID
+	db.Exec("DELETE FROM users WHERE id = ? AND name = ?", id, name)
 	getUsers(db)
 }
 

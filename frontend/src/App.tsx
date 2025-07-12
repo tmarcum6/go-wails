@@ -9,6 +9,7 @@ import DataGrid from './DataGrid'
 function App() {
     const [resultText] = useState("Please enter your name below:");
     const [name, setName] = useState('');
+    const [id] = useState(0);
     const updateName = (e: any) => setName(e.target.value);
 
     function addUser() {
@@ -16,7 +17,7 @@ function App() {
     }
 
     function deleteUser() {
-        DeleteUser(name);
+        DeleteUser(id, name);
     }
 
     function updateUser() {
