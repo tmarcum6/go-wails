@@ -43,18 +43,15 @@ func getUsers(db *sql.DB) []User {
 func add(db *sql.DB, user User) {
 	name := user.Name
 	db.Exec("INSERT INTO users (name) VALUES ('" + name + "')")
-	getUsers(db)
 }
 
 func delete(db *sql.DB, user User) {
 	name := user.Name
 	id := user.ID
 	db.Exec("DELETE FROM users WHERE id = ? AND name = ?", id, name)
-	getUsers(db)
 }
 
 func update(db *sql.DB, user User) {
-	name := user.Name
-	db.Exec("UPDATE users SET name = ? WHERE name = ?", name)
-	getUsers(db)
+	id := user.ID
+	db.Exec("UPDATE users SET name = ? WHERE id = ?", id)
 }

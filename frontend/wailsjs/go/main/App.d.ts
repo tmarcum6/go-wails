@@ -8,4 +8,4 @@ export function DeleteUser(arg1:number,arg2:string):Promise<void>;
 
 export function GetUsers():Promise<Array<main.User>>;
 
-export function UpdateUser(arg1:string):Promise<void>;
+export function UpdateUser(arg1:number):Promise<void>;
