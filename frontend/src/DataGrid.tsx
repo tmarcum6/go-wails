@@ -6,6 +6,7 @@ interface DataGridProps {
     refreshKey: number;
 
 }
+
 const DataGrid: React.FC<DataGridProps> = ({ refreshKey }) => {
     const [data, setData] = useState<main.User[]>([]);
 
